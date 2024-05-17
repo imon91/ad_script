@@ -29,5 +29,24 @@ function generateRandomAustralianPostcode() {
     return getRandomInt(2000, 9999);
 }
 
+function selectRandomCheckboxes() {
+    const checkboxContainers = document.querySelectorAll('.checkbox-container');
 
+    checkboxContainers.forEach(container => {
+        const checkboxes = container.querySelectorAll('input[type="checkbox"]');
+        const randomIndex = Math.floor(Math.random() * checkboxes.length);
+        checkboxes[randomIndex].checked = true;
+         ("called");
+    });
+}
+function selectRandomCheckboxes() {
+    const checkboxContainers = document.querySelectorAll('.checkbox-container');
+
+    checkboxContainers.forEach(container => {
+        const checkboxes = container.querySelectorAll('input[type="checkbox"]');
+        const randomIndex = Math.floor(Math.random() * checkboxes.length);
+        checkboxes[randomIndex].checked = true;
+         ("called");
+    });
+}
 
