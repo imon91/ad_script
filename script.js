@@ -94,3 +94,17 @@ function fillForm(iteration, firstName) {
 
 }
 
+// Main function to run the script
+(function runScript() {
+
+
+    document.querySelector('.mat-button-wrapper').click();
+
+    const firstName = "Tasnim";
+    for (let i = 1; i <= 20; i++) {
+
+
+        setTimeout(() => fillForm(i, firstName),  i*4000); // Delay to avoid rapid submissions
+    }
+})();
+
