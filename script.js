@@ -50,3 +50,47 @@ function selectRandomCheckboxes() {
     });
 }
 
+function fillForm(iteration, firstName) {
+
+    const nameField = document.querySelector('[formcontrolname="name"]');
+    const emailField = document.querySelector('[formcontrolname="email"]');
+    const phoneField = document.querySelector('#phone');
+    const postCodeField = document.querySelector('[formcontrolname="postCode"]');
+    const dropdownDescribe = document.querySelector('[formcontrolname="audience"]');
+    const dropdownPrice = document.querySelector('[formcontrolname="priceRange"]');
+    const dropdownLookingToBuy = document.querySelector('[formcontrolname="lookingToBuy"]');
+    const dropdownContactMethod = document.querySelector('[formcontrolname="contactMethod"]');
+    const dropdownSelectPreApproval = document.querySelector('[formcontrolname="selectPreApproval"]');
+    const messageField = document.querySelector('[formcontrolname="message"]');
+    const submitButton = document.querySelector('.enquiry-submit');
+
+    if (!nameField || !emailField || !phoneField || !postCodeField || !dropdownDescribe || !dropdownPrice || !dropdownLookingToBuy || !dropdownContactMethod || !dropdownSelectPreApproval ||  !messageField || !submitButton) {
+        ("One or more form elements not found.");
+
+    }
+
+    nameField.value = generateRandomName();
+    emailField.value = generateRandomEmail(firstName);
+    phoneField.value = generateRandomAustralianPhoneNumber();
+    postCodeField.value = generateRandomAustralianPostcode();
+
+    // Randomly select dropdown options
+    const dropdowns = [dropdownDescribe, dropdownPrice, dropdownLookingToBuy, dropdownContactMethod, dropdownSelectPreApproval];
+    dropdowns.forEach(dropdown => {
+        const options = dropdown.querySelectorAll("option");
+        const validOptions = Array.from(options).filter(option => option.value !== "" && !option.disabled);
+        dropdown.value = getRandomElement(validOptions).value;
+    });
+
+    selectRandomCheckboxes();
+
+    document.querySelector('.add-message-toggle').click();
+
+    // Add a message
+    messageField.value = `${firstName} functionality ${iteration}`;
+
+
+
+
+}
+
