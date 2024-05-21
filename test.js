@@ -39,7 +39,12 @@ function selectRandomCheckboxes() {
          ("called");
     });
 }
-
+function enableSubmitButton() {
+    const submitButton = document.querySelector('.enquiry-submit');
+    if (submitButton) {
+        submitButton.removeAttribute('disabled');
+    }
+}
 
 function fillForm(iteration, firstName) {
 
@@ -98,4 +103,3 @@ function fillForm(iteration, firstName) {
         setTimeout(() => fillForm(i, firstName),  i*4000); // Delay to avoid rapid submissions
     }
 })();
-
